@@ -4,9 +4,11 @@ class Program
 {
     static void Main(string[] args)
     {
+        string response;
+        do
+        {
         Random randomGenerator = new Random();
         int number = randomGenerator.Next(1, 51);
-        Console.WriteLine(number);
         int count = 0;
         int guessNumber;
             do
@@ -31,5 +33,9 @@ class Program
                     Console.WriteLine($"Number or guesses: {count}");
                 }
             } while (guessNumber != number);
+                Console.Write("Do you want to continue? (yes/no) ");
+                response = Console.ReadLine();
+        } while (response == "yes" || response == "Yes");
+        
     }
 }
