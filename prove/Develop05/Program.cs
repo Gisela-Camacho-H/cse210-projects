@@ -37,6 +37,7 @@ class Program
                 Console.Write("1. Simple Goal\n");
                 Console.Write("2. Eternal Goal\n");
                 Console.Write("3. Checklist Goal\n");
+                Console.Write("4. Physical Goal\n");
                 Console.WriteLine("");
                 Console.Write("Which type of goal would you like to create? ");
                 string userEntry = Console.ReadLine();
@@ -107,10 +108,30 @@ class Program
                     String saveData = $"ChecklistGoal: {myChecklist._name} , {myChecklist._description} , {myChecklist._points} , {myChecklist._bonus} , {myChecklist._limit} , {myChecklist._attempt}";
                     myGoal._saving_goals.Add(saveData); 
                 }
+                else if (myGoal._goal_type == 4){    
+                    Physical myPhysical =  new Physical();
+                    myPhysical._name = name;
+                    myPhysical._description = description;
+                    myPhysical._points = points;
+                    Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+                    string userTimes = Console.ReadLine();
+                    Console.Write("What is the bonus for accomplishing it that many times? ");
+                    string userbonus = Console.ReadLine();
+                    String goalData = $"{myPhysical._name} ({myPhysical._description})";
+                    if (myGoal._is_completed) {
+                        String goal = "[x] " + goalData;
+                        myGoal._listing_goals.Add(goal);  
+                    } else {
+                      String goal = "[ ] " + goalData;
+                        myGoal._listing_goals.Add(goal); 
+                    }
+                    String saveData = $"ChecklistGoal: {myPhysical._name} , {myPhysical._description} , {myPhysical._points}";
+                    myGoal._saving_goals.Add(saveData); 
+                }
                 else {
                     Console.WriteLine("Choose a right number of goal");
                 }
-            } while (myGoal._goal_type > 3 && myGoal._goal_type < 1);
+            } while (myGoal._goal_type > 4 && myGoal._goal_type < 1);
 
                 }
                 else if (inputNumber == 2){
