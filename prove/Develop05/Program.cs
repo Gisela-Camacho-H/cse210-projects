@@ -5,9 +5,11 @@ class Program
     static void Main(string[] args)
     {
         int inputNumber;
+        int goalNumber;
         Goals myGoal = new Goals();
         myGoal._listing_goals = new List<string>();
         myGoal._saving_goals = new List<string>();
+        myGoal._show_goals = new List<string>();
             do
             {
                 Console.WriteLine("");
@@ -67,7 +69,8 @@ class Program
                         myGoal._listing_goals.Add(goal); 
                     }
                     String saveData = $"SimpleGoal: {mySimple._name} , {mySimple._description} , {mySimple._points} , {mySimple._ready}";
-                    myGoal._saving_goals.Add(saveData);  
+                    myGoal._saving_goals.Add(saveData); 
+                    myGoal._show_goals.Add(mySimple._name); 
                 }
                 else if (myGoal._goal_type == 2){
                     Eternal myEternal =  new Eternal();
@@ -84,6 +87,7 @@ class Program
                     }
                     String saveData = $"EternalGoal: {myEternal._name} , {myEternal._description} , {myEternal._points}";
                     myGoal._saving_goals.Add(saveData); 
+                    myGoal._show_goals.Add(myEternal._name); 
                 }
                 else if (myGoal._goal_type == 3){    
                     Checklist myChecklist =  new Checklist();
@@ -107,6 +111,7 @@ class Program
                     }
                     String saveData = $"ChecklistGoal: {myChecklist._name} , {myChecklist._description} , {myChecklist._points} , {myChecklist._bonus} , {myChecklist._limit} , {myChecklist._attempt}";
                     myGoal._saving_goals.Add(saveData); 
+                    myGoal._show_goals.Add(myChecklist._name); 
                 }
                 else if (myGoal._goal_type == 4){    
                     Physical myPhysical =  new Physical();
@@ -167,7 +172,20 @@ class Program
                     }
                 }
                 else if (inputNumber == 5){
-                    
+                    if (myGoal._show_goals.Count == 0){
+                        Console.WriteLine("You don't have register goals yet");
+                    } else {
+                    Console.WriteLine("The goals are: ");
+                    for(int i=0;i<myGoal._show_goals.Count;i++)
+                        {
+                        Console.WriteLine($"{i+1}. " + myGoal._show_goals[i]);
+                        }
+                    }
+                    Console.Write("Select a choice from the menu: ");
+                    string number = Console.ReadLine();
+                    goalNumber = int.Parse(number);
+                    Console.WriteLine($"Congratulation! You have earned {myGoal._listing_goals[goalNumber - 1]} ");
+
                 }
             } while (inputNumber != 6);
             Console.Write("Good Bye\n");

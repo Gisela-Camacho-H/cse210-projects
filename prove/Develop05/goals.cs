@@ -7,6 +7,7 @@ public class Goals
     public int _points;
     public List<string> _listing_goals = new List<string>();
     public List<string> _saving_goals = new List<string>();
+    public List<string> _show_goals = new List<string>();
     protected string _goal;
     public bool _is_completed = false;
 
