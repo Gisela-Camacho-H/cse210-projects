@@ -1,10 +1,14 @@
 public class Goals
 {
-    protected int _total_points;
-    protected string _name;
-    protected string _description;
-    protected int _points;
-    protected List<string> _listing_goals;
+    public int _total_points;
+    public string _name;
+    public int _goal_type;
+    public string _description;
+    public int _points;
+    public List<string> _listing_goals = new List<string>();
+    public List<string> _saving_goals = new List<string>();
+    protected string _goal;
+    public bool _is_completed = false;
 
     public int GetTime()
     {
@@ -19,27 +23,8 @@ public class Goals
     {
     }
 
-        public void Create()
-    {
-    }
-
-        public void List()
-    {
-    }
-
-        public void Save()
-    {
-    }
-
-        public void Load()
-    {
-    }
-
-        public void Record()
-    {
-    }
-
-        public void Display()
-    {
+    public void getPoints(){
+        _total_points = 0;
+        Console.WriteLine($"You have {_total_points} points");
     }
 }

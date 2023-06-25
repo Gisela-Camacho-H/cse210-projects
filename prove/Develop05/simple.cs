@@ -1,4 +1,4 @@
 public class Simple: Goals
 {
-    public bool _is_completed;
+    public bool _ready = true;
 }
