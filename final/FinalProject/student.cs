@@ -1,7 +1,7 @@
 public class Student: User
 {
     
-    private string _course;
+    public string _course;
 
     public List<Grade> _entry = new List<Grade>();
 

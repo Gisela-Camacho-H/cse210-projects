@@ -1,7 +1,7 @@
 public class Person: School
 {
     public string _name;
-    public string _id;
+    public int _id;
 
     public void Welcome()
     {

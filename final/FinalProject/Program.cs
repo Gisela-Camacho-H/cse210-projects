@@ -8,6 +8,7 @@ class Program
         Person myPerson = new Person();
         School mySchool = new School();
         Teacher myTeacher = new Teacher();
+        Secretary mySecretary =  new Secretary();
             do
             {
                 mySchool.DisplayMenu();
@@ -51,19 +52,64 @@ class Program
                 }
                 else if (inputNumber == 3){
                     int secretaryNumber;
+                    string student_name;
+                    int student_id;
+                    string student_course;
+                    string teacher_name;
+                    int teacher_id;
+                    string teacher_course;
                     do
                     {
-                        Secretary mySecretary = new Secretary();
                         mySecretary.DisplayOptions();
 
                     string secretaryInput = Console.ReadLine();
                     secretaryNumber = int.Parse(secretaryInput);
                     Console.Clear();
                         if (secretaryNumber == 1){
-                        Console.WriteLine("Show Grades");
+                            mySecretary.manageGrades();
+                        }
+                        else if (secretaryNumber == 2){
+                            mySecretary._students.Clear();
+                            Console.Write("Search by student name, id, course, level or grade: ");
+                            string searchInput = Console.ReadLine();
+                            mySecretary.printByStudent(searchInput);
+                        }
+                        else if (secretaryNumber == 3){
+                            Console.WriteLine("");
+                            Console.Write("Student Name: \n");
+                            student_name = Console.ReadLine();
+                            Console.WriteLine("");
+                            Console.Write("Id: \n");
+                            string student_int_id = Console.ReadLine();
+                            student_id = int.Parse(student_int_id);
+                            Console.WriteLine("");
+                            Console.Write("Course: \n");
+                            student_course = Console.ReadLine();
+                            Console.WriteLine("");
+                            Student myStudent = new Student();
+                            myStudent._name = student_name;
+                            myStudent._id = student_id;
+                            myStudent._course = student_course;
+                            mySecretary.SaveStudent(myStudent);
+                            mySecretary.SaveFileStudent();
+                        }
+                        else if (secretaryNumber == 4){
+                            Console.WriteLine("");
+                            Console.Write("Teacher Name: \n");
+                            teacher_name = Console.ReadLine();
+                            Console.WriteLine("");
+                            Console.Write("Id: \n");
+                            string teacher_int_id = Console.ReadLine();
+                            teacher_id = int.Parse(teacher_int_id);
+                            Console.WriteLine("");
+                            Teacher registerTeacher = new Teacher();
+                            registerTeacher._name = teacher_name;
+                            registerTeacher._id = teacher_id;
+                            mySecretary.SaveTeacher(registerTeacher);
+                            mySecretary.SaveFileTeacher();
                         }
 
-                    } while (secretaryNumber != 2);
+                    } while (secretaryNumber != 5);
                     Console.WriteLine("back to main menu");
                 }
                 else if (inputNumber == 4){
