@@ -11,6 +11,7 @@ class Program
         Secretary mySecretary =  new Secretary();
         Student studentGrade = new Student();
         Parent parentGrades = new Parent();
+        Principal myPrincipal = new Principal();
             do
             {
                 mySchool.DisplayMenu();
@@ -176,17 +177,19 @@ class Program
                     int principalNumber;
                     do
                     {
-                        Principal myPrincipal = new Principal();
                         myPrincipal.DisplayOptions();
 
                     string principalInput = Console.ReadLine();
                     principalNumber = int.Parse(principalInput);
                     Console.Clear();
                         if (principalNumber == 1){
-                        Console.WriteLine("Show Grades");
+                            myPrincipal.manageGrades();
+                        }
+                        else if(principalNumber == 2) {
+                            myPrincipal.showTeachers();
                         }
 
-                    } while (principalNumber != 2);
+                    } while (principalNumber != 3);
                     Console.WriteLine("back to main menu");
                 }
             } while (inputNumber != 6);

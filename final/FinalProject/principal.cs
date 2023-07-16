@@ -5,8 +5,9 @@ public class Principal: Admin
         Console.WriteLine("");
         Console.Write("Menu Option:\n");
         Console.WriteLine("");
-        Console.Write("1. Show grades\n");
-        Console.Write("2. Quit\n");
+        Console.Write("1. Show all students grades\n");
+        Console.Write("2. Print teachers information\n");
+        Console.Write("3. Quit\n");
         Console.WriteLine("");
         Console.Write("Select the option: ");
     }
