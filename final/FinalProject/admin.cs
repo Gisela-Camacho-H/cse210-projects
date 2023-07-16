@@ -5,10 +5,7 @@ private List<string> _textList = new List<string>();
     
 public void manageGrades() {
         Console.WriteLine("");
-        Console.Write("What is the filename?\n");
-        string filename = Console.ReadLine();
-
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        string[] lines = System.IO.File.ReadAllLines("grades.txt");
         Console.WriteLine("");
         foreach (string line in lines)
         {

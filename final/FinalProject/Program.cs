@@ -9,6 +9,8 @@ class Program
         School mySchool = new School();
         Teacher myTeacher = new Teacher();
         Secretary mySecretary =  new Secretary();
+        Student studentGrade = new Student();
+        Parent parentGrades = new Parent();
             do
             {
                 mySchool.DisplayMenu();
@@ -26,7 +28,10 @@ class Program
                         parentNumber = int.Parse(parentInput);
                         Console.Clear();
                         if (parentNumber == 1){
-                        Console.WriteLine("Show Grades");
+                            Console.Write("Enter the student id: ");
+                            string searchInput = Console.ReadLine();
+                            int id = int.Parse(searchInput);
+                            parentGrades.printParentGrade(id);
                         }
 
                     } while (parentNumber != 2);
@@ -44,7 +49,10 @@ class Program
                     studentNumber = int.Parse(studentInput);
                     Console.Clear();
                         if (studentNumber == 1){
-                        Console.WriteLine("Show Grades");
+                            Console.Write("Enter the student id: ");
+                            string searchInput = Console.ReadLine();
+                            int id = int.Parse(searchInput);
+                            studentGrade.printStudentGrade(id);
                         }
 
                     } while (studentNumber != 2);
@@ -57,7 +65,6 @@ class Program
                     string student_course;
                     string teacher_name;
                     int teacher_id;
-                    string teacher_course;
                     do
                     {
                         mySecretary.DisplayOptions();
@@ -159,7 +166,8 @@ class Program
                             myTeacher.manageGrades();
                         }
                         else if (teacherNumber == 4) {
-                            myTeacher.SaveFile();
+                            myTeacher.SaveFileParents();
+                            myTeacher.SaveFileStudents();
                         }
                     } while (teacherNumber != 5);
                     Console.WriteLine("back to main menu"); 

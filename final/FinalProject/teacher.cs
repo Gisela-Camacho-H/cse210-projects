@@ -15,15 +15,23 @@ public class Teacher: Admin
             _grade.Add(grade);
     }
     
-    public void SaveFile()
+    public void SaveFileParents()
     { 
         Console.WriteLine("");
-        Console.Write("What is the filename?\n");
-        string filename = Console.ReadLine();
-        using (StreamWriter outputFile = new StreamWriter(filename))
+        using (StreamWriter outputFile = new StreamWriter("grades.txt"))
         foreach (Grade grade in _grade)
         {
             outputFile.WriteLine($"Student Name : {grade._student_name} - Id: {grade._student_id}, Course: {grade._course} - Level: {grade._level}: Grade: {grade._grade}");
+        }
+    }
+
+    public void SaveFileStudents()
+    { 
+        Console.WriteLine("");
+        using (StreamWriter outputFile = new StreamWriter("studentGrades.txt"))
+        foreach (Grade grade in _grade)
+        {
+            outputFile.WriteLine($"Id: {grade._student_id}, Course: {grade._course} ---- Grade: {grade._grade} ----");
         }
     }
 

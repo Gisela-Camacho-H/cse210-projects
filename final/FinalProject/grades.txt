@@ -1,2 +1,2 @@
-Student Name : Aly - Id: 554534534, Course: German - Level: A4: Grade: 9
-Student Name : Gis  - Id: 24365346, Course: German - Level: A4: Grade: 8
+Student Name : Gis - Id: 123456, Course: German - Level: A2: Grade: 8.9
+Student Name : Alyson - Id: 654321, Course: French - Level: A2: Grade: 9

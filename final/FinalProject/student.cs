@@ -21,4 +21,17 @@ public class Student: User
         Console.WriteLine("");
         Console.Write("Select the option: ");
     }
+
+    public void printStudentGrade(int id) {
+    string student_id = $"{id}";
+
+    string[] lines = System.IO.File.ReadAllLines("studentGrades.txt");
+    Console.WriteLine("");
+    foreach (string line in lines)
+        {
+             if (line.Contains(student_id)){
+                Console.WriteLine(line);
+             }
+        }
+    }
 }

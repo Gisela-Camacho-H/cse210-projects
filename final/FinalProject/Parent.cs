@@ -15,4 +15,17 @@ public class Parent: User
         Console.WriteLine("");
         Console.Write("Select the option: ");
     }
+
+    public void printParentGrade(int id) {
+    string student_id = $"{id}";
+
+    string[] lines = System.IO.File.ReadAllLines("grades.txt");
+    Console.WriteLine("");
+    foreach (string line in lines)
+        {
+             if (line.Contains(student_id)){
+                Console.WriteLine(line);
+             }
+        }
+    }
 }

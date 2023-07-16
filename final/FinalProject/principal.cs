@@ -10,4 +10,14 @@ public class Principal: Admin
         Console.WriteLine("");
         Console.Write("Select the option: ");
     }
+
+    public void showTeachers() {
+        Console.WriteLine("");
+        string[] lines = System.IO.File.ReadAllLines("teachers.txt");
+        Console.WriteLine("");
+        foreach (string line in lines)
+        {
+            Console.WriteLine(line);
+        }
+    }
 }
